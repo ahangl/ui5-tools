@@ -1,0 +1,33 @@
+{
+  "name": "@ahangl/ui5-task-babel",
+  "version": "1.0.0",
+  "description": "Custom UI5 task to transpile code using babel",
+  "keywords": [
+    "ui5",
+    "babel"
+  ],
+  "author": "Alexander Hangl",
+  "homepage": "https://github.com/ahangl/ui5#readme",
+  "license": "Apache-2.0",
+  "main": "lib/ui5-task-babel.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahangl/ui5.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/ahangl/ui5/issues"
+  }
+}
