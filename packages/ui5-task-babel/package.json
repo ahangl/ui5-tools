@@ -29,5 +29,8 @@
   },
   "bugs": {
     "url": "https://github.com/ahangl/ui5/issues"
+  },
+  "dependencies": {
+    "@babel/core": "^7.15.0"
   }
 }
