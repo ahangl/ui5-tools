@@ -1,0 +1,7 @@
+specVersion: "2.5"
+kind: extension
+type: task
+metadata:
+  name: ui5-task-babel
+task:
+  path: lib/ui5-task-babel.js
