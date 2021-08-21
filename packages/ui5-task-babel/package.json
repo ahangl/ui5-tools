@@ -39,6 +39,7 @@
     "babel-plugin-transform-async-to-promises": "^0.8.15"
   },
   "engines": {
-    "node": ">= 10"
+    "node": ">= 10",
+    "npm": ">= 5"
   }
 }
