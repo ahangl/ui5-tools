@@ -1,7 +1,11 @@
-'use strict';
+
+'use strict'
+
+const babel = require('@babel/core')
+const log = require('@ui5/logger').getLogger('builder:customtask:babel')
 
 /**
- * Custom task example
+ * Custom task for transpiling code using babel.
  *
  * @param {object} parameters Parameters
  * @param {module:@ui5/fs.DuplexCollection} parameters.workspace DuplexCollection to read and write files
@@ -14,5 +18,23 @@
  * @returns {Promise<undefined>} Promise resolving with <code>undefined</code> once data has been written
  */
 module.exports = async function ({ workspace, dependencies, taskUtil, options }) {
-    // [...]
+    let resources = await workspace.byGlob('/**/*.js')
+
+    const babelConfig = {
+        presets: [['@babel/preset-env', { targets: { browsers: "last 2 versions, ie 10-11" } }]],
+        plugins: [['babel-plugin-transform-async-to-promises', { inlineHelpers: true }]]
+    }
+
+    const transformCode = async resource => {
+        let source = await resource.getString()
+        let { code } = babel.transformSync(source, babelConfig)
+        resource.setString(code)
+        return resource
+    }
+
+    const transformedResources = await Promise.all(resources.map(resource => transformCode(resource)))
+
+    await Promise.all(transformedResources.map(resource => {
+        return workspace.write(resource)
+    }))
 };
