@@ -1,6 +1,6 @@
 {
   "name": "@ahangl/ui5-task-babel",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Custom UI5 task to transpile code using babel",
   "keywords": [
     "ui5",
