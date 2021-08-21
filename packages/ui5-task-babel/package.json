@@ -15,7 +15,8 @@
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "lib",
+    "ui5.yaml"
   ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
