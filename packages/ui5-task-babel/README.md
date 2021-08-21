@@ -23,13 +23,13 @@ npm install @ahangl/ui5-task-babel --save-dev
 ```json
 "devDependencies": {
     // ...
-    "ui5-task-babel": "*",
+    "@ahangl/ui5-task-babel": "*",
     // ...
 },
 "ui5": {
     "dependencies": [
         // ...
-        "ui5-task-babel",
+        "@ahangl/ui5-task-babel",
         // ...
     ]
 }
