@@ -37,5 +37,8 @@
     "@ui5/fs": "^2.0.6",
     "@ui5/logger": "^2.0.1",
     "babel-plugin-transform-async-to-promises": "^0.8.15"
+  },
+  "engines": {
+    "node": ">= 10"
   }
 }
