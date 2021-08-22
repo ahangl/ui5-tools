@@ -38,6 +38,9 @@
     "@ui5/logger": "^2.0.1",
     "babel-plugin-transform-async-to-promises": "^0.8.15"
   },
+  "peerDependencies": {
+    "@ui5/cli": ">= 1.13"
+  },
   "engines": {
     "node": ">= 10",
     "npm": ">= 5"
