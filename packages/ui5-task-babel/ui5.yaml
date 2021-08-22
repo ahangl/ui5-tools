@@ -3,5 +3,9 @@ kind: extension
 type: task
 metadata:
   name: ui5-task-babel
+  copyright: |-
+   ui5-task-babel
+    * (c) Copyright ${currentYear} Alexander Hangl
+    * Licensed under the Apache License, Version 2.0 - see LICENSE.
 task:
   path: lib/ui5-task-babel.js
