@@ -44,7 +44,18 @@ builder:
     customTasks:
     - name: ui5-task-babel
       afterTask: replaceVersion
+      configuration:
+        # debug: true
 ```
+
+### Configuration Options
+
+The task accepts the following `configuration` options:
+
+| name | description | default | examples |
+| ---- | ----------- | ------- | -------- |
+| `debug` | if `true`, verbose logging is enabled | `false` | `true`, `false` |
+
 
 ## License
 [Apache-2.0](LICENSE)
