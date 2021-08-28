@@ -14,9 +14,11 @@ const log = require('@ui5/logger').getLogger('builder:customtask:babel')
  * @param {string} parameters.options.projectName Project name
  * @param {string} [parameters.options.projectNamespace] Project namespace if available
  * @param {string} [parameters.options.configuration] Task configuration if given in ui5.yaml
+ * @param {boolean} [parameters.options.configuration.debug] Enable verbose logging if set to true
  * @returns {Promise<undefined>} Promise resolving with <code>undefined</code> once data has been written
  */
 module.exports = async function ({ workspace, dependencies, options }) {
+    const { debug = false } = options.configuration || {}
     let resources = await workspace.byGlob('/**/*.js')
 
     const babelConfig = {
@@ -25,6 +27,7 @@ module.exports = async function ({ workspace, dependencies, options }) {
     }
 
     const transformCode = async resource => {
+        if (debug) log.info(`Transpiling ${resource.getPath()}`)
         let source = await resource.getString()
         let { code } = babel.transformSync(source, babelConfig)
         resource.setString(code)
