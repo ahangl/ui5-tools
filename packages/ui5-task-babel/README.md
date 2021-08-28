@@ -5,7 +5,7 @@
 ## Install
 > Unfortunately, the task is only available via GitHub packages at the moment!
 
-In the same directory as your package.json file, create or edit an .npmrc file to include a line specifying the GitHub packages URL:
+In the same directory as your `package.json` file, create or edit an `.npmrc` file to include a line specifying the GitHub packages URL:
 ```
 @ahangl:registry=https://npm.pkg.github.com
 ```
