@@ -1,8 +1,7 @@
+'use strict';
 
-'use strict'
-
-const babel = require('@babel/core')
-const log = require('@ui5/logger').getLogger('builder:customtask:babel')
+const babel = require('@babel/core');
+const log = require('@ui5/logger').getLogger('builder:customtask:babel');
 
 /**
  * Custom task for transpiling code using babel.
@@ -18,25 +17,25 @@ const log = require('@ui5/logger').getLogger('builder:customtask:babel')
  * @returns {Promise<undefined>} Promise resolving with <code>undefined</code> once data has been written
  */
 module.exports = async function ({ workspace, dependencies, options }) {
-    const { debug = false } = options.configuration || {}
-    let resources = await workspace.byGlob('/**/*.js')
+    const { debug = false } = options.configuration || {};
+    let resources = await workspace.byGlob('/**/*.js');
 
     const babelConfig = {
         presets: [['@babel/preset-env', { targets: { browsers: "last 2 versions, ie 10-11" } }]],
         plugins: [['babel-plugin-transform-async-to-promises', { inlineHelpers: true }]]
-    }
+    };
 
     const transformCode = async resource => {
-        if (debug) log.info(`Transpiling ${resource.getPath()}`)
-        let source = await resource.getString()
-        let { code } = babel.transformSync(source, babelConfig)
-        resource.setString(code)
-        return resource
-    }
+        if (debug) log.info(`Transpiling ${resource.getPath()}`);
+        let source = await resource.getString();
+        let { code } = babel.transformSync(source, babelConfig);
+        resource.setString(code);
+        return resource;
+    };
 
-    const transformedResources = await Promise.all(resources.map(resource => transformCode(resource)))
+    const transformedResources = await Promise.all(resources.map(resource => transformCode(resource)));
 
     await Promise.all(transformedResources.map(resource => {
-        return workspace.write(resource)
-    }))
+        return workspace.write(resource);
+    }));
 };
