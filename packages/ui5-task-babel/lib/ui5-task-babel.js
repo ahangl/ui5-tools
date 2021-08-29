@@ -14,10 +14,11 @@ const log = require('@ui5/logger').getLogger('builder:customtask:babel');
  * @param {string} [parameters.options.projectNamespace] Project namespace if available
  * @param {string} [parameters.options.configuration] Task configuration if given in ui5.yaml
  * @param {boolean} [parameters.options.configuration.debug] Enable verbose logging if set to true
+ * @param {Array<string>} [paremeters.options.configuration.exclude] Paths to exclude from transpilation
  * @returns {Promise<undefined>} Promise resolving with <code>undefined</code> once data has been written
  */
 module.exports = async function ({ workspace, dependencies, options }) {
-    const { debug = false } = options.configuration || {};
+    const { debug = false, exclude = [] } = options.configuration || {};
     let resources = await workspace.byGlob('/**/*.js');
 
     const babelConfig = {
@@ -26,7 +27,12 @@ module.exports = async function ({ workspace, dependencies, options }) {
     };
 
     const transformCode = async resource => {
-        if (debug) log.info(`Transpiling ${resource.getPath()}`);
+        const resourcePath = resource.getPath();
+        if (exclude.some(pattern => resourcePath.includes(pattern))) {
+            log.info(`Exclude ${resourcePath}`);
+            return resource;
+        }
+        if (debug) log.info(`Transpiling ${resourcePath}`);
         let source = await resource.getString();
         let { code } = babel.transformSync(source, babelConfig);
         resource.setString(code);
