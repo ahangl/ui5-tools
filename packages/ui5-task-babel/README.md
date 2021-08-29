@@ -55,6 +55,7 @@ The task accepts the following `configuration` options:
 | name | description | default | examples |
 | ---- | ----------- | ------- | -------- |
 | `debug` | if `true`, verbose logging is enabled | `false` | `true`, `false` |
+| `exclude` | array of paths inside `$yourapp/webapp/` to exclude from transpilation | `[]` | `["test/", "localService/"]`
 
 
 ## License
