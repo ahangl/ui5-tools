@@ -18,13 +18,18 @@ const log = require('@ui5/logger').getLogger('builder:customtask:babel');
  * @returns {Promise<undefined>} Promise resolving with <code>undefined</code> once data has been written
  */
 module.exports = async function ({ workspace, dependencies, options }) {
-    const { debug = false, exclude = [] } = options.configuration || {};
+    const { debug = false, exclude = [], usePreset = true } = options.configuration || {};
     let resources = await workspace.byGlob('/**/*.js');
 
-    const babelConfig = {
+    let babelConfig = {
         presets: [['@babel/preset-env', { targets: { browsers: "last 2 versions, ie 10-11" } }]],
         plugins: [['babel-plugin-transform-async-to-promises', { inlineHelpers: true }]]
     };
+
+    if (usePreset) {
+        if (debug) log.info('Using custom bable configuration only');
+        babelConfig = {};
+    }
 
     const transformCode = async resource => {
         const resourcePath = resource.getPath();
