@@ -34,7 +34,7 @@ module.exports = async function ({ workspace, dependencies, options }) {
     const transformCode = async resource => {
         const resourcePath = resource.getPath();
         if (exclude.some(pattern => resourcePath.includes(pattern))) {
-            log.info(`Exclude ${resourcePath}`);
+            if (debug) log.info(`Exclude ${resourcePath}`);
             return resource;
         }
         if (debug) log.info(`Transpiling ${resourcePath}`);
