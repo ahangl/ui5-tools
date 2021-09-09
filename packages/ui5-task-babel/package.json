@@ -32,7 +32,7 @@
     "url": "https://github.com/ahangl/ui5/issues"
   },
   "dependencies": {
-    "@babel/core": "^7.15.0",
+    "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.0",
     "@ui5/fs": "^2.0.6",
     "@ui5/logger": "^2.0.1",
