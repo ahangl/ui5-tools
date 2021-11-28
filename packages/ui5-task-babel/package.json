@@ -7,7 +7,7 @@
     "babel"
   ],
   "author": "Alexander Hangl",
-  "homepage": "https://github.com/ahangl/ui5#readme",
+  "homepage": "https://github.com/ahangl/ui5-tools#readme",
   "license": "Apache-2.0",
   "main": "lib/ui5-task-babel.js",
   "directories": {
@@ -23,13 +23,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ahangl/ui5.git"
+    "url": "git+https://github.com/ahangl/ui5-tools.git"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
-    "url": "https://github.com/ahangl/ui5/issues"
+    "url": "https://github.com/ahangl/ui5-tools/issues"
   },
   "dependencies": {
     "@babel/core": "^7.15.5",

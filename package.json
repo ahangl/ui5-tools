@@ -1,5 +1,5 @@
 {
-  "name": "@ahangl/ui5",
+  "name": "@ahangl/ui5-tools",
   "private": true,
   "license": "Apache-2.0",
   "devDependencies": {

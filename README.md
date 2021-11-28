@@ -1,4 +1,4 @@
-# 📦 UI5 package collection
+# 📦 UI5 tools collection
 
 > Note: This repository contains little extension for the [ui5-tooling](https://sap.github.io/ui5-tooling/) that I developed while working with UI5.
 
