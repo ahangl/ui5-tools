@@ -72,7 +72,7 @@ let babelConfig = {
 
 > Note: when using the custom option you have to install and manage your configuration and presets within your project according to your needs!
 
-In the same directory as your `package.json` file, create a babel config file, e.g. `babel.config.js`. You can learn more about babel config files [here](https://babeljs.io/docs/en/config-files)
+In the same directory as your `package.json` file, create a babel config file, e.g. `babel.config.js`. You can learn more about babel config files [here](https://babeljs.io/docs/en/config-files).
 
 As of Babel 7.4.0, [@babel/polyfill](https://babeljs.io/docs/en/babel-polyfill) has been deprecated in favor of directly including:
 - [core-js](https://github.com/zloirock/core-js) (to polyfill ECMAScript features)
@@ -88,8 +88,8 @@ Then manually add the packages as ui5 dependencies in your project's `package.js
 {
   "dependencies": {
     // ...
-    "core-js-bundle": "^3.6.5",
-    "regenerator-runtime": "^0.13.5"
+    "core-js-bundle": "*",
+    "regenerator-runtime": "*"
     // ...
   },
   "ui5": {
